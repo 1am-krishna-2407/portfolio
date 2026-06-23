@@ -33,6 +33,14 @@ export default function ContactSection() {
     "idle" | "sending" | "sent" | "error"
   >("idle");
 
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(PERSONAL.email);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
@@ -49,16 +57,16 @@ export default function ContactSection() {
 
     try {
       await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_email: PERSONAL.email,
-          reply_to: formData.email,
-        },
-        { publicKey }
+      serviceId,
+      templateId,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_email: PERSONAL.email,
+        reply_to: formData.email,
+      },
+      { publicKey }
       );
 
       setStatus("sent");
@@ -203,8 +211,8 @@ export default function ContactSection() {
                 {
                   icon: Mail,
                   label: "Email",
-                  value: PERSONAL.email,
-                  href: `mailto:${PERSONAL.email}`,
+                  value: copied ? "Copied to clipboard!" : PERSONAL.email,
+                  onClick: handleCopyEmail,
                 },
                 {
                   icon: GithubIcon,
@@ -218,23 +226,30 @@ export default function ContactSection() {
                   value: "Krishna Kumar Jha",
                   href: PERSONAL.linkedin,
                 },
-              ].map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 p-3 rounded-lg bg-bg-card border border-border-subtle text-text-muted hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300"
-                >
-                  <link.icon className="w-4 h-4 flex-shrink-0" />
-                  <div className="min-w-0">
-                    <div className="text-[10px] text-text-dim uppercase tracking-wider">
-                      {link.label}
+              ].map((link) => {
+                const isButton = "onClick" in link;
+                const Component = isButton ? "button" : "a";
+                return (
+                  <Component
+                    key={link.label}
+                    {...(isButton
+                      ? { onClick: link.onClick, type: "button" }
+                      : { href: link.href, target: "_blank", rel: "noopener noreferrer" }
+                    )}
+                    className="flex w-full text-left items-center gap-3 p-3 rounded-lg bg-bg-card border border-border-subtle text-text-muted hover:text-accent-blue hover:border-accent-blue/30 transition-all duration-300 focus:outline-none"
+                  >
+                    <link.icon className="w-4 h-4 flex-shrink-0" />
+                    <div className="min-w-0">
+                      <div className="text-[10px] text-text-dim uppercase tracking-wider">
+                        {link.label}
+                      </div>
+                      <div className={`text-sm truncate ${link.label === "Email" && copied ? "text-accent-green font-medium animate-pulse" : ""}`}>
+                        {link.value}
+                      </div>
                     </div>
-                    <div className="text-sm truncate">{link.value}</div>
-                  </div>
-                </a>
-              ))}
+                  </Component>
+                );
+              })}
             </div>
 
             {/* Resume */}
