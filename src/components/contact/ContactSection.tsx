@@ -33,19 +33,20 @@ export default function ContactSection() {
   >("idle");
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
 
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      setStatus("sent");
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setStatus("idle"), 3000);
-    } catch {
-      setStatus("error");
-      setTimeout(() => setStatus("idle"), 3000);
-    }
+    const subject = encodeURIComponent(`Portfolio query from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    const mailtoUrl = `mailto:${PERSONAL.email}?subject=${subject}&body=${body}`;
+
+    window.location.href = mailtoUrl;
+    setStatus("sent");
+    setFormData({ name: "", email: "", message: "" });
+    setTimeout(() => setStatus("idle"), 3000);
   };
 
   return (
@@ -152,10 +153,10 @@ export default function ContactSection() {
                 {status === "sending" ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Sending...
+                    Opening email...
                   </>
                 ) : status === "sent" ? (
-                  <>✓ Message Sent!</>
+                  <>Email Draft Opened</>
                 ) : status === "error" ? (
                   <>✕ Error — try again</>
                 ) : (
