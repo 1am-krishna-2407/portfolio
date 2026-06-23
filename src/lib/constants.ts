@@ -146,7 +146,7 @@ export const PROJECTS: Project[] = [
       "Detection Overlay",
       "Results Dashboard",
     ],
-    github: "https://github.com/krishnakumarjha/seal-signature-detection",
+    github: "https://github.com/1am-krishna-2407/seal-signature-detection",
     color: "#3B82F6",
   },
   {
@@ -177,7 +177,7 @@ export const PROJECTS: Project[] = [
       "MongoDB",
       "Docker Container",
     ],
-    github: "https://github.com/krishnakumarjha/devflow",
+    github: "https://github.com/1am-krishna-2407/devflow",
     color: "#8B5CF6",
   },
   {
@@ -207,7 +207,7 @@ export const PROJECTS: Project[] = [
       "Evaluation",
       "Prediction Dashboard",
     ],
-    github: "https://github.com/krishnakumarjha/heart-disease-prediction",
+    github: "https://github.com/1am-krishna-2407/heart-disease-prediction",
     color: "#22C55E",
   },
 ];
@@ -552,14 +552,14 @@ Focus areas:
   resume: `Downloading resume...
   → Opening resume.pdf`,
 
-  github: `GitHub: github.com/krishnakumarjha
+  github: `GitHub: github.com/1am-krishna-2407
   → Opening GitHub profile...`,
 
   contact: `Contact Information:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  Email    : krishnakumarjha@email.com
-  LinkedIn : linkedin.com/in/krishnakumarjha
-  GitHub   : github.com/krishnakumarjha
+  Email    : krishnajha2004@gmail.com
+  LinkedIn : linkedin.com/in/krishnaaa-here
+  GitHub   : github.com/1am-krishna-2407
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   Status: 🟢 Open to opportunities`,
