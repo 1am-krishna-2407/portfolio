@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { motion } from "motion/react";
 import { Send, Mail, Download } from "lucide-react";
 import { PERSONAL } from "@/lib/constants";
@@ -31,22 +32,42 @@ export default function ContactSection() {
   const [status, setStatus] = useState<
     "idle" | "sending" | "sent" | "error"
   >("idle");
-  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus("sending");
 
-    const subject = encodeURIComponent(`Portfolio query from ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    );
-    const mailtoUrl = `mailto:${PERSONAL.email}?subject=${subject}&body=${body}`;
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-    window.location.href = mailtoUrl;
-    setStatus("sent");
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setStatus("idle"), 3000);
+    if (!serviceId || !templateId || !publicKey) {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+      return;
+    }
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: PERSONAL.email,
+          reply_to: formData.email,
+        },
+        { publicKey }
+      );
+
+      setStatus("sent");
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setStatus("idle"), 3000);
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 3000);
+    }
   };
 
   return (
@@ -84,7 +105,6 @@ export default function ContactSection() {
             className="md:col-span-3"
           >
             <form
-              ref={formRef}
               onSubmit={handleSubmit}
               className="space-y-4"
             >
@@ -153,10 +173,10 @@ export default function ContactSection() {
                 {status === "sending" ? (
                   <>
                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                    Opening email...
+                    Sending...
                   </>
                 ) : status === "sent" ? (
-                  <>Email Draft Opened</>
+                  <>Message Sent!</>
                 ) : status === "error" ? (
                   <>✕ Error — try again</>
                 ) : (
