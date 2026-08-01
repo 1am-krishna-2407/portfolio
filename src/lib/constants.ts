@@ -146,7 +146,7 @@ export const PROJECTS: Project[] = [
       "Detection Overlay",
       "Results Dashboard",
     ],
-    github: "https://github.com/1am-krishna-2407/seal-signature-detection",
+    github: "https://github.com/1am-krishna-2407/Computer-Vision-Based-Seal-and-Signature-Detection-for-Legal-Documents",
     color: "#3B82F6",
   },
   {
@@ -207,7 +207,7 @@ export const PROJECTS: Project[] = [
       "Evaluation",
       "Prediction Dashboard",
     ],
-    github: "https://github.com/1am-krishna-2407/heart-disease-prediction",
+    github: "https://github.com/1am-krishna-2407/heart-disease",
     color: "#22C55E",
   },
 ];
