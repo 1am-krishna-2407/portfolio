@@ -1,52 +1,70 @@
-import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import Script from "next/script";
+import { Newsreader, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
+  axes: ["opsz"],
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Krishna Kumar Jha | Machine Learning Engineer & Backend Developer",
+  metadataBase: new URL("https://portfolio-alpha-sage-21.vercel.app"),
+  title: "Krishna Kumar Jha — AI, ML & Full-Stack Engineer",
   description:
-    "Building production-ready AI systems, computer vision solutions, and scalable backend platforms. Machine Learning Engineer, Computer Vision Engineer, and Backend Developer.",
+    "I build AI and machine-learning systems, and the backends that put them in production. RAG, computer vision, ML pipelines and full-stack services.",
   keywords: [
+    "AI Engineer",
     "Machine Learning Engineer",
+    "RAG",
+    "Full-Stack Developer",
     "Computer Vision",
     "Backend Developer",
-    "Python",
-    "Spring Boot",
     "YOLOv8",
-    "AI Engineer",
-    "Software Engineer",
+    "Spring Boot",
+    "Python",
   ],
   authors: [{ name: "Krishna Kumar Jha" }],
   openGraph: {
-    title: "Krishna Kumar Jha | ML Engineer & Backend Developer",
+    title: "Krishna Kumar Jha — AI, ML & Full-Stack Engineer",
     description:
-      "Building production-ready AI systems, computer vision solutions, and scalable backend platforms.",
+      "I build AI and machine-learning systems, and the backends that put them in production.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Krishna Kumar Jha | ML Engineer",
+    card: "summary",
+    title: "Krishna Kumar Jha — AI, ML & Full-Stack Engineer",
     description:
-      "Building production-ready AI systems and scalable backend platforms.",
-  },
-  robots: {
-    index: true,
-    follow: true,
+      "I build AI and machine-learning systems, and the backends that put them in production.",
   },
 };
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f4f1ea" },
+    { media: "(prefers-color-scheme: dark)", color: "#131210" },
+  ],
+};
+
+// Applies a saved theme before first paint so there's no light/dark flash.
+const themeScript = `try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -56,9 +74,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${newsreader.variable} ${plexSans.variable} ${plexMono.variable}`}
+      suppressHydrationWarning
     >
-      <body className="min-h-screen bg-bg-primary text-text-primary antialiased" suppressHydrationWarning>
+      <body suppressHydrationWarning>
+        <Script id="theme" strategy="beforeInteractive">
+          {themeScript}
+        </Script>
         {children}
       </body>
     </html>

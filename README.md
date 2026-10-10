@@ -1,366 +1,110 @@
-# 🚀 Krishna Kumar Jha – Developer Portfolio
+# Krishna Kumar Jha — Portfolio
 
-<div align="center">
+**AI Engineer · Machine Learning Engineer · Computer Vision Engineer · Full-Stack & Backend Developer**
 
-[![Portfolio](https://img.shields.io/badge/Live-Portfolio-blue?style=for-the-badge)](https://portfolio-alpha-sage-21.vercel.app/)
-[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)]
-[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue?style=for-the-badge&logo=typescript)]
-[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Styled-06B6D4?style=for-the-badge&logo=tailwindcss)]
-[![Vercel](https://img.shields.io/badge/Deployed-Vercel-black?style=for-the-badge&logo=vercel)]
+Live: **https://portfolio-alpha-sage-21.vercel.app**
 
-### Machine Learning Engineer • Computer Vision Engineer • Backend Developer
-
-An immersive, recruiter-focused portfolio showcasing production-ready AI systems, scalable backend architectures, software engineering projects, technical achievements, and interactive engineering experiences.
-
-### 🌐 Live Website
-
-**https://portfolio-alpha-sage-21.vercel.app/**
-
-</div>
+A recruiter-focused portfolio designed as an *annotated engineering document*: a precise, paper-like layout where Krishna's own seal-and-signature detector "reads" the page, drawing detection boxes around key content. Every claim on the site links to evidence: case studies, measured metrics, source code.
 
 ---
 
-# 📖 Overview
-
-This portfolio was designed with a single objective:
-
-> Create a memorable first impression for recruiters, hiring managers, engineering leaders, and AI-focused organizations.
-
-Unlike traditional student portfolios, this website emphasizes:
-
-- Real-world engineering projects
-- Production-oriented thinking
-- Machine Learning expertise
-- Computer Vision applications
-- Backend architecture skills
-- Technical storytelling
-- Interactive user experience
-
-The portfolio combines modern web technologies, smooth animations, and system design visualizations to showcase both technical depth and engineering mindset.
-
----
-
-# ✨ Features
-
-## 🎯 Recruiter-Focused Experience
-
-The portfolio is structured to answer three critical questions:
-
-- Who am I?
-- What can I build?
-- Why should I be hired?
-
-Every section is optimized to maximize recruiter engagement and retention.
-
----
-
-## 🤖 AI & Machine Learning Showcase
-
-Highlights projects involving:
-
-- Machine Learning
-- Computer Vision
-- Predictive Analytics
-- Data Processing
-- Model Deployment
-
-Including detailed project breakdowns and architecture visualizations.
-
----
-
-## 🏗️ Engineering-Centric Project Display
-
-Each project includes:
-
-- Problem Statement
-- Solution Approach
-- Technology Stack
-- Architecture Overview
-- Key Achievements
-- GitHub Repository
-- Technical Insights
-
----
-
-## 🎨 Modern Interactive Design
-
-Features:
-
-- Smooth page transitions
-- Interactive project cards
-- Scroll-based animations
-- Dynamic backgrounds
-- Glassmorphism effects
-- Developer-inspired UI elements
-
----
-
-## 📊 Technical Dashboard
-
-Displays:
-
-- Skills & Technologies
-- Engineering Domains
-- Project Metrics
-- Experience Highlights
-- GitHub Activity
-
----
-
-## 🖥️ Developer Experience
-
-Includes:
-
-- Interactive command center
-- Terminal-inspired elements
-- Architecture diagrams
-- Modern engineering aesthetic
-- Fully responsive design
-
----
-
-# 🧠 Projects Featured
-
-## 📑 Seal & Signature Detection System
-
-Computer Vision system developed using YOLOv8 and OpenCV for automated detection of handwritten signatures and official seals from document images.
-
-### Highlights
-
-- 97.1% mAP@50
-- 4902 Annotated Documents
-- 3000 Synthetic Samples Generated
-- 95.4% Precision
-- 92.6% Recall
-
-### Technologies
-
-- Python
-- YOLOv8
-- OpenCV
-- Streamlit
-
----
-
-## ⚙️ DevFlow
-
-Workflow Automation Platform inspired by modern developer ecosystems.
-
-### Features
-
-- JWT Authentication
-- Role-Based Access Control
-- Project Management
-- Task Tracking
-- Redis Caching
-- Docker Deployment
-
-### Technologies
-
-- Java
-- Spring Boot
-- PostgreSQL
-- Redis
-- Docker
-
----
-
-## ❤️ Heart Disease Prediction Dashboard
-
-Machine Learning-powered healthcare prediction system that estimates cardiovascular disease risk based on patient health metrics.
-
-### Technologies
-
-- Python
-- Scikit-Learn
-- Pandas
-- Streamlit
-
----
-
-# 🛠 Tech Stack
-
-## Frontend
-
-- Next.js
-- TypeScript
-- React
-- Tailwind CSS
-- Framer Motion
-
-## Backend
-
-- Spring Boot
-- REST APIs
-- Node.js
-
-## Machine Learning
-
-- Python
-- Scikit-Learn
-- TensorFlow
-- OpenCV
-
-## Databases
-
-- PostgreSQL
-- MongoDB
-
-## Cloud & DevOps
-
-- Docker
-- Kubernetes
-- AWS
-- GitHub Actions
-
----
-
-# 📚 Skills
-
-### Languages
-
-- Python
-- Java
-- C++
-- JavaScript
-
-### Machine Learning
-
-- Supervised Learning
-- Data Preprocessing
-- Feature Engineering
-- Model Evaluation
-
-### Computer Vision
-
-- YOLO
-- OpenCV
-- Image Processing
-- Object Detection
-
-### Backend Development
-
-- Spring Boot
-- Hibernate
-- REST APIs
-- Authentication & Authorization
-
-### Databases
-
-- PostgreSQL
-- MongoDB
-
-### DevOps
-
-- Docker
-- Kubernetes
-- CI/CD
-
----
-
-# 🏆 Achievements
-
-- Solved **250+ Data Structures & Algorithms problems**
-- Qualified participant in the **Infineon Hackathon**
-- Developed multiple production-oriented AI and software engineering projects
-- Machine Learning Internship Experience
-- Continuous learner in AI, Backend Development, and System Design
-
----
-
-# 📜 Certifications
-
-- Dynamic Programming, Greedy Algorithms — University of Colorado Boulder
-- The Bits and Bytes of Computer Networking — Google / Coursera
-
----
-
-# 📈 Portfolio Goals
-
-This portfolio demonstrates:
-
-✅ Machine Learning Expertise
-
-✅ Computer Vision Experience
-
-✅ Backend Engineering Skills
-
-✅ Software Development Practices
-
-✅ System Design Thinking
-
-✅ Product-Oriented Development
-
-✅ Recruiter-Friendly Presentation
-
----
-
-# 🚀 Running Locally
-
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/portfolio.git
+## Highlights
+
+- **Role editions.** One site, ordered for the reader:
+  - `/?role=ai` leads with AI / ML work and the AI resume
+  - `/?role=fullstack` leads with full-stack and backend work and the full-stack resume
+  - `/` is the general edition
+  Editions are prebuilt pages (served through a Next.js proxy rewrite), so there's no layout flicker.
+- **Ask the portfolio.** A grounded LLM assistant (Google Gemini) that answers recruiters' questions **only** from the portfolio's content, cites the section behind every claim, and replies with a fixed "not available, contact Krishna" message for anything outside it.
+- **Job-description matching.** Paste a JD to get a fit report: fit score, matching skills, relevant projects, supporting experience, gaps and interview talking points, each with sources.
+- **Case studies in two domains.** *AI, ML & computer vision* and *full-stack & backend*, each with problem → constraints → approach → architecture → results → next steps.
+- **Live GitHub references.** The repositories pinned on the GitHub profile, refreshed hourly.
+- **Recruiter shortcuts.** TL;DR one-page brief, resume picker (AI / ML or full-stack PDF), skills as a list or a domains × projects grid, light/dark themes.
+- **Easter egg.** Press <kbd>`</kbd> for a terminal (`help`, `ask <question>`, `sudo hire krishna`).
+
+## Featured projects
+
+| Code | Project | Domain | Headline result |
+|---|---|---|---|
+| A.1 | [AI Support Ticket Resolution](https://github.com/1am-krishna-2407/ai-support-ticket-resolution) | RAG · NLP | 0.956 Hit@5 on a 51-case benchmark |
+| A.2 | [Seal & Signature Detection](https://github.com/1am-krishna-2407/Computer-Vision-Based-Seal-and-Signature-Detection-for-Legal-Documents) | Computer vision | 97.1% mAP@50 (YOLOv8) |
+| A.3 | [Heart Disease Prediction](https://github.com/1am-krishna-2407/heart-disease) | Machine learning | Real-time Streamlit dashboard |
+| B.1 | CodeFlow — Secure Code Execution | Backend | Docker-sandboxed async jobs in 3 languages |
+| B.2 | [DevFlow](https://github.com/1am-krishna-2407/dev-flow) | Full-stack | Spring Boot + live GitHub activity |
+| B.3 | [Personal Expense Tracking System](https://github.com/1am-krishna-2407/Expense-Traq) | Full-stack | JWT rotation, SQL-backed reports |
+
+## Tech stack
+
+- **Framework:** Next.js 16 (App Router, ISR, Proxy), React 19, TypeScript
+- **Styling:** Tailwind CSS v4, Newsreader + IBM Plex type, custom design tokens (light/dark)
+- **Motion:** `motion` (respects `prefers-reduced-motion`)
+- **AI:** Google Gemini (`generateContent` with JSON-schema output), server-side only
+- **Data:** GitHub REST API (cached hourly), EmailJS for the contact form
+- **Hosting:** Vercel
+
+## Project structure
+
+```
+src/
+  app/
+    page.tsx              General edition
+    for/[role]/page.tsx   Role editions (ai, fullstack)
+    api/assistant/        Assistant API route (ask + job matching)
+  proxy.ts                Rewrites /?role=… to the matching edition
+  components/             Page sections (hero, work, systems, stack, …)
+  lib/
+    constants.ts          ← all site content lives here
+    assistant/            Prompt, citation catalog, profile builder, client
+    github.ts             Pinned-repository fetcher
+scripts/
+  assistant-eval.mjs      Evaluation harness for the assistant
+  assistant-cases.json    32 test cases (facts, refusals, injections, JD matching)
+public/                   Photo and the two resume PDFs
 ```
 
-Navigate into the project:
+**Editing content:** almost everything (roles, projects, skills, experience, certifications, editions) is in [`src/lib/constants.ts`](src/lib/constants.ts). The assistant's knowledge is generated from the same file, so the site and the assistant never drift apart.
 
-```bash
-cd portfolio
-```
-
-Install dependencies:
+## Running locally
 
 ```bash
 npm install
+cp .env.example .env.local   # then fill in the values
+npm run dev                  # http://localhost:3000
 ```
 
-Run development server:
+Other scripts:
 
 ```bash
-npm run dev
+npm run build            # production build
+npm run lint             # ESLint
+npm run eval:assistant   # run the assistant evaluation (site must be running)
 ```
 
-Build for production:
+## Environment variables
 
-```bash
-npm run build
-```
+See [`.env.example`](.env.example). None are required to build; features degrade gracefully without them.
 
-Start production server:
+| Variable | Purpose | Without it |
+|---|---|---|
+| `GEMINI_API_KEY` | Portfolio assistant | Assistant shows relevant sections instead of answers |
+| `GEMINI_MODEL` / `GEMINI_BACKUP_MODEL` | Override models (defaults: `gemini-3.5-flash-lite`, backup `gemini-3.6-flash`) | Defaults used |
+| `GITHUB_TOKEN` | Higher GitHub API rate limit | Works at 60 requests/hour |
+| `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Contact form delivery | Form shows a "email me directly" fallback |
+| `HF_API_KEY`, `HF_EMBEDDING_MODEL` | Reserved for future retrieval (Qwen3-Embedding) | Not used yet |
 
-```bash
-npm start
-```
+Never commit `.env.local`; it's ignored by git.
 
----
+## How the assistant stays accurate
 
-# 🌐 Deployment
+1. **Whole-profile context, no retrieval.** The profile is small enough to send in full, so nothing can be missed by search.
+2. **Structured output.** Gemini returns JSON matching a fixed schema at temperature 0.
+3. **Server-side grounding gates.** Every citation must match a real section; answers without valid citations become the fixed "not available" reply, and unsupported "met" requirements are downgraded.
+4. **Hygiene.** HTML is stripped, links not found in the profile are removed, inputs are length-capped and rate-limited, and pasted job descriptions are treated as data, never instructions.
+5. **Evaluated.** `npm run eval:assistant` runs 32 cases, covering facts, formatting, refusals, prompt injection and JD matching. Current result: 32/32.
 
-This project is deployed on Vercel.
+## Contact
 
-### Live Demo
-
-👉 https://portfolio-alpha-sage-21.vercel.app/
-
----
-
-# 📬 Contact
-
-### Krishna Kumar Jha
-
-📧 Email: krishnajha2004@gmail.com
-
-💼 LinkedIn: www.linkedin.com/in/krishna-kumar-jha-2631a026b
-
-💻 GitHub: https://github.com/Krishnajha2004
-
----
-
-<div align="center">
-
-### "Building intelligent systems where AI, scalable architecture, and software engineering intersect."
-
-⭐ If you like the portfolio, consider giving the repository a star.
-
-</div>
+- Email: krishnajha2004@gmail.com
+- LinkedIn: https://www.linkedin.com/in/krishnaaa-here/
+- GitHub: https://github.com/1am-krishna-2407
+- LeetCode: https://leetcode.com/u/Krishna_17/
