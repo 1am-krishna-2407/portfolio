@@ -57,10 +57,12 @@ export default function Contact() {
       return;
     }
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+    // Set in next.config.ts from EMAILJS_* or NEXT_PUBLIC_EMAILJS_* variables.
+    const serviceId = process.env.EMAILJS_SERVICE_ID;
+    const templateId = process.env.EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.EMAILJS_PUBLIC_KEY;
     if (!serviceId || !templateId || !publicKey) {
+      console.error("[contact] EmailJS is not configured: set EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID and EMAILJS_PUBLIC_KEY.");
       setStatus("failed");
       return;
     }
@@ -80,7 +82,9 @@ export default function Contact() {
         { publicKey }
       );
       setStatus("sent");
-    } catch {
+    } catch (err) {
+      // EmailJS rejects with { status, text }, e.g. "The service ID not found".
+      console.error("[contact] EmailJS send failed:", err);
       setStatus("failed");
     }
   };

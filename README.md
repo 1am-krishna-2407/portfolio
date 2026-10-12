@@ -89,7 +89,7 @@ See [`.env.example`](.env.example). None are required to build; features degrade
 | `GEMINI_API_KEY` | Portfolio assistant | Assistant shows relevant sections instead of answers |
 | `GEMINI_MODEL` / `GEMINI_BACKUP_MODEL` | Override models (defaults: `gemini-3.5-flash-lite`, backup `gemini-3.6-flash`) | Defaults used |
 | `GITHUB_TOKEN` | Higher GitHub API rate limit | Works at 60 requests/hour |
-| `NEXT_PUBLIC_EMAILJS_SERVICE_ID`, `NEXT_PUBLIC_EMAILJS_TEMPLATE_ID`, `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | Contact form delivery | Form shows a "email me directly" fallback |
+| `EMAILJS_SERVICE_ID`, `EMAILJS_TEMPLATE_ID`, `EMAILJS_PUBLIC_KEY` (the `NEXT_PUBLIC_` versions also work) | Contact form delivery | Form shows an "email me directly" fallback |
 | `HF_API_KEY`, `HF_EMBEDDING_MODEL` | Reserved for future retrieval (Qwen3-Embedding) | Not used yet |
 
 Never commit `.env.local`; it's ignored by git.
